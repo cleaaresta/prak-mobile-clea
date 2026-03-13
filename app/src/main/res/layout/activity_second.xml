@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Halo, Juara! 👋"
+        android:text="Halo, Juara!!! 👋"
         android:textColor="#2E3D49"
         android:textSize="28sp"
         android:textStyle="bold"
