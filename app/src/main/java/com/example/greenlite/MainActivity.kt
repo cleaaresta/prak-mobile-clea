@@ -22,6 +22,12 @@ class MainActivity : AppCompatActivity() {
         binding.btnToFourth.setOnClickListener {
             //Mengambil value dari inputNama dan menampilkan di Logcat
             val intent = Intent(this, FourthActivity::class.java)
+
+            /*tambahkan bagian berikut*/
+            intent.putExtra("nama", "Politeknik Caltex Riau")
+            intent.putExtra("asal", "Rumbai")
+            intent.putExtra("umur", 25)
+
             startActivity(intent)
         }
     }
