@@ -26,7 +26,6 @@ class ThirdActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         binding.btnKirim.setOnClickListener {
             val nomor = binding.inputNoTujuan.text
             Log.e("Klik btnSubmit", "Tombol berhasil di tekan. Isi dari inputNama = $nomor")
@@ -36,5 +35,6 @@ class ThirdActivity : AppCompatActivity() {
             val intent = Intent(this, ThirdResultActivity::class.java)
             startActivity(intent)
         }
+
     }
 }
