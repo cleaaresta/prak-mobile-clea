@@ -7,4 +7,20 @@
         android:title="Settings"
         app:showAsAction="never" />
 
+    <!-- Improvisasi Option Menu: Menambahkan Sub-menu -->
+    <item
+        android:id="@+id/menu_info"
+        android:title="Informasi"
+        android:icon="@drawable/ic_info"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/sub_menu_about"
+                android:title="Tentang Aplikasi" />
+            <item
+                android:id="@+id/sub_menu_help"
+                android:title="Bantuan" />
+        </menu>
+    </item>
+
 </menu>

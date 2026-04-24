@@ -21,6 +21,17 @@
             app:titleTextColor="@android:color/white"
             app:layout_scrollFlags="scroll|enterAlways"/>
 
+        <!-- Improvisasi WebView: Menambahkan ProgressBar untuk indikator loading -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progressDrawable="@android:drawable/progress_horizontal"
+            android:visibility="gone" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <WebView

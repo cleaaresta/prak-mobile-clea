@@ -1,6 +1,10 @@
 package com.example.greenlite.pertemuan_5
 
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.view.View
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +19,6 @@ class WebViewActivity : AppCompatActivity() {
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Inisialisasi Toolbar
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
             title = "Web Merdeka"
@@ -23,24 +26,38 @@ class WebViewActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-        // Listener untuk tombol back di Toolbar (Panah Kiri)
         binding.toolbar.setNavigationOnClickListener {
             handleBackNavigation()
         }
 
-        // 2. Setup WebView
+        // Improvisasi WebView: Menambahkan WebChromeClient untuk ProgressBar & WebViewClient untuk loading state
         binding.webView.apply {
-            webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
-            // Improvisasi tambahan: aktifkan zoom agar nyaman saat mencari di Google
             settings.setSupportZoom(true)
             settings.builtInZoomControls = true
             settings.displayZoomControls = false
 
+            webViewClient = object : WebViewClient() {
+                override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                    super.onPageStarted(view, url, favicon)
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    binding.progressBar.visibility = View.GONE
+                }
+            }
+
+            webChromeClient = object : WebChromeClient() {
+                override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                    binding.progressBar.progress = newProgress
+                }
+            }
+
             loadUrl("https://merdeka.com")
         }
 
-        // 3. Handle Tombol Back Fisik/Gesture HP
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 handleBackNavigation()
@@ -48,7 +65,6 @@ class WebViewActivity : AppCompatActivity() {
         })
     }
 
-    // Fungsi pusat navigasi back
     private fun handleBackNavigation() {
         if (binding.webView.canGoBack()) {
             binding.webView.goBack()

@@ -20,15 +20,21 @@ class FifthActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Activity Fifth"
-            subtitle = "Ini adalah Subtitle"
             setDisplayHomeAsUpEnabled(true)
             setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
 
+        // Improvisasi Toolbar: Mengatur title pada CollapsingToolbarLayout
+        binding.collapsingToolbar.title = "Activity Fifth"
+
         binding.btnWebView.setOnClickListener {
             val intent = Intent(this, WebViewActivity::class.java)
             startActivity(intent)
+        }
+
+        // Improvisasi Scrollable Content: Handling FAB
+        binding.fab.setOnClickListener {
+            Toast.makeText(this, "Floating Action Button Clicked!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -45,6 +51,15 @@ class FifthActivity : AppCompatActivity() {
             }
             R.id.action_settings -> {
                 Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
+                true
+            }
+            // Improvisasi Option Menu: Handling Sub-menu items
+            R.id.sub_menu_about -> {
+                Toast.makeText(this, "Tentang Aplikasi: Versi 1.0", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.sub_menu_help -> {
+                Toast.makeText(this, "Bantuan: Hubungi admin@example.com", Toast.LENGTH_SHORT).show()
                 true
             }
             else -> super.onOptionsItemSelected(item)
