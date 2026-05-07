@@ -3,10 +3,10 @@ package com.example.greenlite
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.greenlite.databinding.ActivityMainBinding
 import com.example.greenlite.pertemuan_4.FourthActivity
-import com.example.greenlite.pertemuan_5.FifthActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,11 +25,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Tambahkan tombol untuk ke Pertemuan 5 jika ada di layout, 
-        // atau ganti sementara fungsi tombol yang ada untuk testing.
-        binding.root.setOnClickListener {
-             val intent = Intent(this, FifthActivity::class.java)
-             startActivity(intent)
+        // Fitur Logout dengan AlertDialog konfirmasi
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Konfirmasi Logout")
+                .setMessage("Apakah Anda yakin ingin keluar?")
+                .setPositiveButton("Ya") { _, _ ->
+                    finish()
+                }
+                .setNegativeButton("Tidak", null)
+                .show()
         }
     }
 }
