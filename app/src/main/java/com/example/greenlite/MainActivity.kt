@@ -1,5 +1,6 @@
 package com.example.greenlite
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -25,12 +26,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Fitur Logout dengan AlertDialog konfirmasi
+        // Fitur Logout dengan AlertDialog konfirmasi dan SharedPreferences
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Konfirmasi Logout")
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { _, _ ->
+                    // Set status login menjadi false di SharedPreferences
+                    val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+                    sharedPref.edit().putBoolean("isLogin", false).apply()
+
+                    val intent = Intent(this, AuthActivity::class.java)
+                    startActivity(intent)
                     finish()
                 }
                 .setNegativeButton("Tidak", null)
