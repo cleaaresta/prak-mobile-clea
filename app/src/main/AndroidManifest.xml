@@ -13,15 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Greenlite">
 
-        <!-- AuthActivity sebagai Launcher (Halaman Utama saat App dibuka) -->
+        <!-- SplashScreenActivity sebagai Halaman Utama (Launcher) -->
         <activity
-            android:name=".AuthActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".AuthActivity"
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
