@@ -1,4 +1,4 @@
-package com.example.greenlite.pertemuan_2
+package com.example.greenlite.Home.pertemuan_2
 
 fun main() {
     println("Hai rekan-rekan...")

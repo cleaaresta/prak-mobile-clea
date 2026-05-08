@@ -17,7 +17,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
             // Mengarahkan ke AuthActivity. 
             // AuthActivity akan mengecek SharedPreferences untuk menentukan apakah lanjut ke MainActivity atau tetap di Login.
-            val intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
+            val intent = Intent(this@SplashScreenActivity, BaseActivity::class.java)
             startActivity(intent)
             finish()
         }

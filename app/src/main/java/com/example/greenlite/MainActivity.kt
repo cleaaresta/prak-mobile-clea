@@ -7,7 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.greenlite.databinding.ActivityMainBinding
-import com.example.greenlite.pertemuan_4.FourthActivity
+import com.example.greenlite.Home.pertemuan_4.FourthActivity
+import com.example.greenlite.Home.pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -42,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 .setNegativeButton("Tidak", null)
                 .show()
+        }
+        binding.btnPertemuan7.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
+            startActivity(intent)
         }
     }
 }
