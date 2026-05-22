@@ -11,6 +11,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.greenlite.AuthActivity
 import com.example.greenlite.Home.pertemuan_4.FourthActivity
+import com.example.greenlite.Home.pertemuan_7.SeventhActivity
+import com.example.greenlite.Home.pertemuan_9.NinthActivity
 import com.example.greenlite.R
 import com.example.greenlite.databinding.FragmentHomeBinding
 
@@ -47,7 +49,8 @@ class HomeFragment : Fragment() {
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { _, _ ->
                     // Set status login menjadi false di SharedPreferences
-                    val sharedPref = requireContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+                    val sharedPref =
+                        requireContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
                     sharedPref.edit().putBoolean("isLogin", false).apply()
 
                     val intent = Intent(requireContext(), AuthActivity::class.java)
@@ -58,7 +61,13 @@ class HomeFragment : Fragment() {
                 .show()
         }
         binding.btnPertemuan7.setOnClickListener {
-            val intent = Intent()
+            val intent = Intent(requireContext(), SeventhActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnPertemuan9.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
     }
-}
 }

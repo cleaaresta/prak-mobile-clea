@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Greenlite">
         <activity
+            android:name=".Home.pertemuan_9.NinthActivity"
+            android:exported="false" />
+        <activity
             android:name=".BaseActivity"
             android:exported="false" />
         <activity

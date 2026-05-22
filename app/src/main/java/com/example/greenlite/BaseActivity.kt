@@ -24,6 +24,7 @@ class BaseActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
+        replaceFragment(HomeFragment())
 
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
