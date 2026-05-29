@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.greenlite.AuthActivity
+import com.example.greenlite.Home.pertemuan_10.TenthActivity
 import com.example.greenlite.Home.pertemuan_4.FourthActivity
 import com.example.greenlite.Home.pertemuan_7.SeventhActivity
 import com.example.greenlite.Home.pertemuan_9.NinthActivity
@@ -69,5 +70,16 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
+
+        // Navigasi ke TenthActivity (Pertemuan 10)
+        binding.btnPertemuan10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
