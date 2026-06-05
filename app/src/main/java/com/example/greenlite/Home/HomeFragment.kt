@@ -9,13 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.greenlite.AuthActivity
 import com.example.greenlite.Home.pertemuan_10.TenthActivity
 import com.example.greenlite.Home.pertemuan_4.FourthActivity
 import com.example.greenlite.Home.pertemuan_7.SeventhActivity
 import com.example.greenlite.Home.pertemuan_9.NinthActivity
 import com.example.greenlite.R
+import com.example.greenlite.data.api.CatFactApiClient
 import com.example.greenlite.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -42,6 +45,8 @@ class HomeFragment : Fragment() {
             intent.putExtra("umur", 25)
             startActivity(intent)
         }
+
+        loadCatFact()
 
         // Fitur Logout dengan AlertDialog konfirmasi dan SharedPreferences
         binding.btnLogout.setOnClickListener {
@@ -81,5 +86,16 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadCatFact() {
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+            }
+        }
     }
 }

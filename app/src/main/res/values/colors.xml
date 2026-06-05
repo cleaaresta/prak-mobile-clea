@@ -4,4 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bg">#AF1919</color>
     <color name="button">#E42168</color>
+
+    <color name="tutorial_bg_1">#73A5E1</color>
+    <color name="tutorial_bg_2">#A6C764</color>
+    <color name="tutorial_bg_3">#539B9B</color>
+    <color name="text_color">#333333</color>
 </resources>

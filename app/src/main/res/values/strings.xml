@@ -10,4 +10,13 @@
     <string name="action_settings">Settings</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tutorial_title_1">Selamat Datang di Fitur Pesan!</string>
+    <string name="tutorial_desc_1">Dengan fitur ini, kamu bisa melihat daftar pesan masuk dari pengguna lain. Semua pesan ditampilkan lengkap dengan nama pengirim, avatar, dan isi pesan</string>
+
+    <string name="tutorial_title_2">Tap untuk Melihat Detail!</string>
+    <string name="tutorial_desc_2">Ketuk salah satu pesan untuk melihat detailnya. Kamu juga bisa menambahkan aksi lain seperti membalas, menyimpan, atau membagikan pesan tersebut</string>
+
+    <string name="tutorial_title_3">Mulai Gunakan Sekarang</string>
+    <string name="tutorial_desc_3">Jelajahi fitur pesan dan temukan informasi penting dari komunitas pengguna. Fitur ini dirancang simpel, cepat, dan mudah dipahami</string>
 </resources>
