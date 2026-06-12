@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.greenlite.Home.HomeFragment
 import com.example.greenlite.Message.MessageFragment
 import com.example.greenlite.More.MoreFragment
+import com.example.greenlite.Note.NoteFragment
 import com.example.greenlite.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -40,6 +41,11 @@ class BaseActivity : AppCompatActivity() {
 
                 R.id.more -> {
                    replaceFragment(MoreFragment())
+                    true
+                }
+
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
                     true
                 }
 

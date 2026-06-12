@@ -94,11 +94,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     private fun loadCatFact() {
         lifecycleScope.launch {
             try {
