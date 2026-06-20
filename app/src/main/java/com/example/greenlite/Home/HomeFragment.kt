@@ -12,14 +12,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.greenlite.AuthActivity
 import com.example.greenlite.Home.pertemuan_10.TenthActivity
+import com.example.greenlite.Home.pertemuan_13.ThirteenthActivity
 import com.example.greenlite.Home.pertemuan_4.FourthActivity
 import com.example.greenlite.Home.pertemuan_7.SeventhActivity
 import com.example.greenlite.Home.pertemuan_9.NinthActivity
 import com.example.greenlite.Home.photo.PhotoAdapter
-import com.example.greenlite.R
 import com.example.greenlite.data.api.CatFactApiClient
 import com.example.greenlite.data.api.PhotoApiClient
 import com.example.greenlite.databinding.FragmentHomeBinding
@@ -89,6 +88,12 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // Navigasi ke ThirteenthActivity (Pertemuan 13)
+        binding.btnPertemuan13.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnRefresh.setOnClickListener {
             loadCatFact()
         }
@@ -111,12 +116,6 @@ class HomeFragment : Fragment() {
                 val photos = PhotoApiClient.apiService.getPhotos()
                 val adapter = PhotoAdapter(photos)
                 binding.rvGallery.adapter = adapter
-
-                /** List Tampil Vertical*/
-//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
-
-                /** List Tampil Horizontal */
-//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
                 /** List Tampil Grid */
                 binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
