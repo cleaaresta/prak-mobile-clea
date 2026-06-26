@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.greenlite.AuthActivity
 import com.example.greenlite.Home.pertemuan_10.TenthActivity
 import com.example.greenlite.Home.pertemuan_13.ThirteenthActivity
+import com.example.greenlite.Home.pertemuan_3.ThirdActivity
 import com.example.greenlite.Home.pertemuan_4.FourthActivity
 import com.example.greenlite.Home.pertemuan_7.SeventhActivity
 import com.example.greenlite.Home.pertemuan_9.NinthActivity
@@ -74,6 +75,11 @@ class HomeFragment : Fragment() {
         }
         binding.btnPertemuan7.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToThird.setOnClickListener {
+            val intent = Intent(requireContext(), ThirdActivity::class.java)
             startActivity(intent)
         }
 
